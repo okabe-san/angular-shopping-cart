@@ -21,8 +21,11 @@
             <h4>{{item.name}}</h4>
             <p><big>Ingredients: </big>{{item.ingredients}}</p>
             <p><big>Caffeine Scale: </big>{{item.caffeineScale}}</p>
-            <p><big>Price: </big>{{item.price | test}}</p>
-            <p><big>In Stock: </big>{{item.inStock}}</p>
+            <p><big>Price: </big>${{item.price | currencyFn}}</p>
+            <p><big>In Stock: </big>
+              <span ng-if="item.inStock===true">Yes</span>
+              <span ng-if="item.inStock===false">No</span>
+            </p>
             <p><big>Rating: </big>{{item.rating}}</p>
             <p><big>Categories: </big>
               <ul>
@@ -43,5 +46,6 @@
     <!-- main component -->
     <script type="text/javascript" src="js/components/main/main.controller.js"></script>
     <script type="text/javascript" src="js/components/main/products.service.js"></script>
+      <script type="text/javascript" src="js/components/main/main.filter.js"></script>
   </body>
 </html>
