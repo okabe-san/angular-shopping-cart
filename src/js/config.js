@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('myApp.config', [])
+    .module('ShoppingCartApp.config', [])
     .config(appConfig);
 
   function appConfig() {}

@@ -3,14 +3,13 @@
   'use strict';
 
   angular
-    .module('myApp.components.main', [])
+    .module('ShoppingCartApp.components.main', [])
     .controller('mainController', mainController);
 
-  mainController.$inject = ['$scope'];
+  mainController.$inject = ['productsService', '$scope'];
 
-  function mainController($scope) {
+  function mainController(productsService, $scope) {
     /*jshint validthis: true */
-    this.greeting = 'Hello World!';
+    this.products = productsService.productsList;
   }
-
 })();
