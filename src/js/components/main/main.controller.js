@@ -27,8 +27,4 @@
     });
     this.categories = arr;
   }
-
-  function sortFn() {
-    
-  }
 })();

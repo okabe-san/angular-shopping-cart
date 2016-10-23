@@ -12,13 +12,19 @@
   <body ng-cloak ng-controller="mainController as ctrl">
     <div class="row">
       <div class="col s3" ng-controller="categoryController as ctrlCategory">
-        <select class="browser-default">
-          <option value="" disabled selected>Choose your category</option>
-          <option ng-model="category" ng-change="sortFn()" ng-repeat="item in ctrlCategory.categories">{{item}}</option>
-        </select>
+        <select class="browser-default" ng-model="category" ng-options="name for name in ctrlCategory.categories" ng-change="">{{name}}</select>
       </div>
       <div class="col s3">
         <input type="text" ng-model="search" placeholder="Search">
+      </div>
+      <div class="col s3">
+        <select class="browser-default" ng-model="sortBy">
+          <option value="-price">Price High</option>
+          <option value="price">Price Low</option>
+        </select>
+      </div>
+      <div class="col s3">
+        <a class="btn">Cart</a>
       </div>
     </div>
     <div class="container">
@@ -27,7 +33,7 @@
           <th>Tea</th>
           <th>Information</th>
         </tr>
-        <tr ng-repeat="item in ctrl.products | filter: search | filter: sortBy : sortFn">
+        <tr ng-repeat="item in ctrl.products | orderBy:sortBy | filter: search">
           <td><img ng-src="{{item.imageUrl}}"></td>
           <td>
             <h4>{{item.name}}</h4>
