@@ -5,9 +5,11 @@
   'use strict';
 
   angular
-    .module('ShoppingCartApp', [
-      'ShoppingCartApp.config',
-      'ShoppingCartApp.components.main'
+    .module('shoppingCartApp', [
+      'ngRoute',
+      'shoppingCartApp.config',
+      'shoppingCartApp.components.main',
+      'shoppingCartApp.components.cart'
     ]);
 
 })();

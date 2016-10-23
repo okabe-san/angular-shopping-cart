@@ -3,9 +3,8 @@
   'use strict';
 
   angular
-    .module('ShoppingCartApp.components.main')
-    .filter('currencyFn', currencyFn)
-    .filter('sortFn', sortFn);
+    .module('shoppingCartApp.components.main')
+    .filter('currencyFn', currencyFn);
 
   currencyFn.$inject = [];
 
@@ -19,10 +18,4 @@
     };
   }
 
-  function sortFn() {
-    /*jshint validthis: true */
-    return function (input) {
-      console.log('test');
-    };
-  }
 })();

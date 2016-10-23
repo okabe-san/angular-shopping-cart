@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ShoppingCartApp">
+<html lang="en" ng-app="shoppingCartApp">
   <head>
     <meta charset="utf-8">
     <title>Shopping Cart</title>
@@ -9,61 +9,22 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
 
-  <body ng-cloak ng-controller="mainController as ctrl">
-    <div class="row">
-      <div class="col s3" ng-controller="categoryController as ctrlCategory">
-        <select class="browser-default" ng-model="category" ng-options="name for name in ctrlCategory.categories" ng-change="">{{name}}</select>
-      </div>
-      <div class="col s3">
-        <input type="text" ng-model="search" placeholder="Search">
-      </div>
-      <div class="col s3">
-        <select class="browser-default" ng-model="sortBy">
-          <option value="-price">Price High</option>
-          <option value="price">Price Low</option>
-        </select>
-      </div>
-      <div class="col s3">
-        <a class="btn">Cart</a>
-      </div>
-    </div>
+  <body ng-cloak>
+    <!-- sample angular code -->
     <div class="container">
-      <table class="bordered">
-        <tr>
-          <th>Tea</th>
-          <th>Information</th>
-        </tr>
-        <tr ng-repeat="item in ctrl.products | orderBy:sortBy | filter: search">
-          <td><img ng-src="{{item.imageUrl}}"></td>
-          <td>
-            <h4>{{item.name}}</h4>
-            <p><big>Ingredients: </big>{{item.ingredients}}</p>
-            <p><big>Caffeine Scale: </big>{{item.caffeineScale}}</p>
-            <p><big>Price: </big>${{item.price | currencyFn}}</p>
-            <p><big>In Stock: </big>
-              <span ng-if="item.inStock===true">Yes</span>
-              <span ng-if="item.inStock===false">No</span>
-            </p>
-            <p><big>Rating: </big>{{item.rating}}</p>
-            <p><big>Categories: </big>
-              <ul>
-                <li ng-repeat="category in item.categories">{{category}}</li>
-              </ul>
-            </p>
-            <a type="button" class="btn btn-default" href="/#/comments/{{item.id}}">Add to Bag</a>
-          </td>
-        </tr>
-      </table>
+      <div ng-view></div>
     </div>
     <!-- scripts -->
     <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <!-- main component -->
     <script type="text/javascript" src="js/components/main/main.controller.js"></script>
     <script type="text/javascript" src="js/components/main/products.service.js"></script>
     <script type="text/javascript" src="js/components/main/main.filter.js"></script>
+    <script type="text/javascript" src="js/components/cart/cart.controller.js"></script>
   </body>
 </html>

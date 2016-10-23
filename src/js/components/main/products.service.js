@@ -3,10 +3,9 @@
   'use strict';
 
   angular
-    .module('ShoppingCartApp.components.main')
-    .service('productsService', productsService);
-
-  productsService.$inject = [];
+    .module('shoppingCartApp.components.main')
+    .service('productsService', productsService)
+    .service('cartService', cartService);
 
   function productsService() {
     /*jshint validthis: true */
@@ -113,5 +112,15 @@
         categories: ['spring', 'warm','winter']
       }
     ];
+  }
+
+  function cartService() {
+    /*jshint validthis: true */
+    this.cartList = [];
+    this.receiptList = {
+      sub: 0,
+      total: 0,
+      tax: 0
+    };
   }
 })();

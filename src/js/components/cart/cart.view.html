@@ -1,0 +1,52 @@
+<main ng-cloak>
+  <div class="row">
+    <div class="col s3">
+      <a href="#!" class="btn">Home</a>
+    </div>
+  </div>
+  <div ng-repeat="item in cartCtrl.addedProducts">
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th>Tea Information</th>
+          <th>Counts</th>
+          <th>Sub Total<th>
+          <th><th>
+        </tr>
+        <tr>
+      </thead>
+      <tbody>
+        <td>
+          <h4>{{item.name}}</h4>
+          <img ng-src="{{item.imageUrl}}">
+          <p><big>Ingredients: </big>{{item.ingredients}}</p>
+          <p><big>Caffeine Scale: </big>{{item.caffeineScale}}</p>
+        </td>
+        <td>
+          <select class="browser-default">
+            <option value="">Change Amouts</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </td>
+        <td>
+          <p><big>Price: </big>$</p>
+        </td>
+        <td>
+          <button>Edit</btton>
+          <button>Remove</btton>
+        </td>
+      </tbody>
+    </table>
+    <div ng-congroller="cartController as cartCtrl">
+    </div>
+  </div>
+</main>
