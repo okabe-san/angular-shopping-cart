@@ -45,7 +45,7 @@
         item.tea.count = parseInt(item.tea.count) + parseInt(item.quantity);
         item.tea.sub = item.tea.count * item.tea.price;
       }
-      console.log(this.cart);
+      // console.log(this.cart);
     };
   }
 })();

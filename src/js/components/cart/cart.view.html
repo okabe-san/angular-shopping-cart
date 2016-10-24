@@ -25,25 +25,25 @@
         <td>
           <p><big>Sub Total: </big>{{item.count}} x {{item.price | currencyFn}} ${{item.sub | currencyFn}}</p>
         </td>
-        <td>
-          <select class="browser-default" ng-model="data" type="number" name="quantity">
-            <option value="">Change Quantity</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-        </td>
-        <td>
-          <button>Edit</btton>
-          <button>Remove</btton>
-        </td>
+          <td>
+            <select class="browser-default" ng-model="data" type="number" name="quantity">
+              <option value="">Change QTY</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          <div ng-controller="editQtyController as editCtrl">
+            <button ng-click="editCtrl.edit(item)">Edit</button>
+            <button ng-click="">Remove</button>
+          </td>
+        </div>
       </tbody>
     </table>
   </div>
