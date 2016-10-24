@@ -4,7 +4,7 @@
       <a href="#!" class="btn">Home</a>
     </div>
   </div>
-  <div ng-repeat="item in cartCtrl.addedProducts">
+  <div>
     <table class="bordered">
       <thead>
         <tr>
@@ -15,7 +15,7 @@
         </tr>
         <tr>
       </thead>
-      <tbody>
+      <tbody ng-repeat="item in cartCtrl.cart">
         <td>
           <h4>{{item.name}}</h4>
           <img ng-src="{{item.imageUrl}}">
@@ -23,8 +23,11 @@
           <p><big>Caffeine Scale: </big>{{item.caffeineScale}}</p>
         </td>
         <td>
-          <select class="browser-default">
-            <option value="">Change Amouts</option>
+          <p><big>Sub Total: </big>{{item.count}} x {{item.price | currencyFn}} ${{item.sub | currencyFn}}</p>
+        </td>
+        <td>
+          <select class="browser-default" ng-model="data" type="number" name="quantity">
+            <option value="">Change Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -38,15 +41,10 @@
           </select>
         </td>
         <td>
-          <p><big>Price: </big>$</p>
-        </td>
-        <td>
           <button>Edit</btton>
           <button>Remove</btton>
         </td>
       </tbody>
     </table>
-    <div ng-congroller="cartController as cartCtrl">
-    </div>
   </div>
 </main>

@@ -34,16 +34,18 @@
     this.cart = cartService.cartList;
     this.receipt = cartService.receiptList;
     this.add = (item) => {
-      this.receipt.sub += item.price;
+      this.receipt.sub += item.tea.price;
       this.receipt.tax = this.receipt.sub * 0.08;
       this.receipt.total = this.receipt.sub + this.receipt.tax;
-      if (this.cart.indexOf(item) === -1) {
-        item.count = this.count;
-        this.cart.push(item);
+      if (this.cart.indexOf(item.tea) === -1) {
+        item.tea.count = parseInt(item.quantity);
+        item.tea.sub = parseInt(item.quantity) * item.tea.price;
+        this.cart.push(item.tea);
       } else {
-        item.count = item.count + this.count;
+        item.tea.count = parseInt(item.tea.count) + parseInt(item.quantity);
+        item.tea.sub = item.tea.count * item.tea.price;
       }
-      // console.log(this.count);
+      console.log(this.cart);
     };
   }
 })();

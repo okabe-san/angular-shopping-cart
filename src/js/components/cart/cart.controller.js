@@ -6,8 +6,11 @@
     .module('shoppingCartApp.components.cart', [])
     .controller('cartController', cartController);
 
-  cartController.$inject = [];
+  cartController.$inject = ['cartService'];
 
-  function cartController() {
+  function cartController(cartService) {
+    /*jshint validthis: true */
+    this.cart = cartService.cartList;
+    this.receipt = cartService.receiptList;
   }
 })();
