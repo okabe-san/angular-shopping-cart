@@ -13,6 +13,13 @@
   function mainController(productsService) {
     /*jshint validthis: true */
     this.products = productsService.productsList;
+
+    this.checkCategory = (category) => {
+      if (!category) return;
+      return (product) => {
+        return product.categories.indexOf(category) > -1;
+      };
+    };
   }
 
   function categoryController(productsService) {

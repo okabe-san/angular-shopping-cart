@@ -16,10 +16,12 @@
     this.receipt = cartService.receiptList;
   }
 
-  function editQtyController() {
+  function editQtyController(productsService, cartService) {
     /*jshint validthis: true */
+    this.cart = cartService.cartList;
+    this.receipt = cartService.receiptList;
     this.edit = (item) => {
-      console.log(item);
+      console.log(this.item);
     };
   }
 })();
